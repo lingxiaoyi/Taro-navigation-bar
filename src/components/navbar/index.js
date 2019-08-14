@@ -21,7 +21,7 @@ export default class Index extends Component {
                 goBackImage: Back_white
             })
         }
-   
+
     }
 
     config = {
@@ -49,7 +49,7 @@ export default class Index extends Component {
     }
 
     setGoBackImage(){
-       
+
     }
 
     componentWillMount() {
@@ -116,7 +116,7 @@ export default class Index extends Component {
             'opacity': this.props.opacity
         }
         const appInaverClass = classNames('app-inaver', { 'inaverfixed': this.props.fixedtop })
-
+        console.log('this.props.protectInaver', this.props.protectInaver);
         return (
             <View>
                 <View onlongpress={this.handlergotop} style={appInaverStyle} className={appInaverClass}>

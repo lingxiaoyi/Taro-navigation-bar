@@ -1,6 +1,6 @@
 import Taro , { Component } from '@tarojs/taro';
 import { View, Text, Button, Image } from '@tarojs/components';
-import NavBar from 'taro-navbar';
+import NavBar from '@components/NavBar/index';
 
 
 import longimg from './timg.jpg'
@@ -18,13 +18,13 @@ export default class Index extends Component {
   }
 
   componentWillMount () {}
-  componentDidMount () {} 
-  componentWillReceiveProps (nextProps,nextContext) {} 
-  componentWillUnmount () {} 
-  componentDidShow () {} 
-  componentDidHide () {} 
-  componentDidCatchError () {} 
-  componentDidNotFound () {} 
+  componentDidMount () {}
+  componentWillReceiveProps (nextProps,nextContext) {}
+  componentWillUnmount () {}
+  componentDidShow () {}
+  componentDidHide () {}
+  componentDidCatchError () {}
+  componentDidNotFound () {}
   handlerGobackClick(e) {
     Taro.showModal({
         title: '你点击了返回',

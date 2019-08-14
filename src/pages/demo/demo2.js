@@ -1,8 +1,8 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View, Input } from '@tarojs/components';
-import NavBar from '@components/navbar_lxy/navBar';
+import NavBar from '@components/navbar_lxy';
 import withComponent from './mixin';
-import './demo.scss';
+import './index.scss';
 
 @withComponent
 export default class Index extends Component {
@@ -12,6 +12,18 @@ export default class Index extends Component {
   };
 
   state = {};
+  handlerGobackClick() {
+    const pages = Taro.getCurrentPages();
+    if (pages.length >= 2) {
+      Taro.navigateBack({
+        delta: 1
+      });
+    } else {
+      Taro.navigateTo({
+        url: '/pages/index/index'
+      });
+    }
+  }
   render() {
     return (
       <View className='main-wraper'>

@@ -1,8 +1,8 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View, Input } from '@tarojs/components';
-import NavBar from '@components/navbar_lxy/navBar';
+import NavBar from '@components/navbar_lxy';
 import withComponent from './mixin';
-import './demo.scss';
+import './index.scss';
 
 @withComponent
 export default class Index extends Component {
@@ -15,47 +15,61 @@ export default class Index extends Component {
   };
 
   state = {};
+  handlerGobackClick() {
+    const pages = Taro.getCurrentPages();
+    if (pages.length >= 2) {
+      Taro.navigateBack({
+        delta: 1
+      });
+    } else {
+      Taro.navigateTo({
+        url: '/pages/index/index'
+      });
+    }
+  }
   render() {
     return (
       <View className='main-wraper'>
         <NavBar
-          title='自定义左侧栏目'
           background='#000000'
           color='#fff'
           iconTheme='white'
-          back
-          home
           onBack={this.handlerGobackClick}
           onHome={this.handlerGohomeClick}
           renderLeft={
-            <View class='location' slot='left'>
+            <View class='location'>
               <View class='con'>上海</View>
               <View class='icon' />
             </View>
           }
-        >
-          <View
-            slot='center'
-            className='lxy-nav-bar-search'
-            style='height:{{capsulePosition.height}}px;'
-            bindtap='search'
-          >
-            <View class='icon-search' />
-            <Input
-              autoFocus='true'
-              bindconfirm='confirmSearch'
-              bindinput='search'
-              className='srch-ipt'
-              confirmType='search'
-              placeholder='搜索内容'
-              placeholderclassName='ipt-placeholder'
-              type='text'
-              value=''
-            />
-          </View>
-        </NavBar>
+          renderCenter={
+            <View className='lxy-nav-bar-search' style='height:{{capsulePosition.height}}px;' bindtap='search'>
+              <View class='icon-search' />
+              <Input
+                autoFocus='true'
+                bindconfirm='confirmSearch'
+                bindinput='search'
+                className='srch-ipt'
+                confirmType='search'
+                placeholder='搜索内容'
+                placeholderclassName='ipt-placeholder'
+                type='text'
+                value=''
+              />
+            </View>
+          }
+        />
         <View className='main'>
-          <View className='p'>自定义左侧栏目</View>
+          <View
+            className='p active'
+            onClick={() => {
+              Taro.navigateTo({
+                url: '/pages/index/index'
+              });
+            }}
+          >
+            点击跳转自定义左侧栏目带自定义搜索框
+          </View>
         </View>
       </View>
     );

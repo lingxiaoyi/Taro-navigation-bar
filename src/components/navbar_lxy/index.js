@@ -1,7 +1,7 @@
 import _isFunction from 'lodash/isFunction';
 import Taro, { Component } from '@tarojs/taro';
 import { View } from '@tarojs/components';
-import './navBar.scss';
+import './index.scss';
 
 class AtComponent extends Component {
   constructor(props) {
@@ -40,7 +40,7 @@ class AtComponent extends Component {
     title: '',
     searchText: '点我搜索',
     searchBar: false,
-    back: true,
+    back: false,
     home: false,
     iconTheme: 'black',
     delta: 1

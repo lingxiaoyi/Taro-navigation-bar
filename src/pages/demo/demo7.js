@@ -1,14 +1,17 @@
 import Taro, { Component } from '@tarojs/taro';
-import { View, Input } from '@tarojs/components';
-import NavBar from '@components/navbar_lxy/navBar';
+import { View } from '@tarojs/components';
+import NavBar from '@components/navbar_lxy';
 import withComponent from './mixin';
-import './demo.scss';
+import './index.scss';
 
 @withComponent
 export default class Index extends Component {
   config = {
-    navigationBarTitleText: '',
-    navigationStyle: 'custom'
+    navigationBarTextStyle: 'white',
+    navigationStyle: 'custom',
+    backgroundColor: '#f8f8f8',
+    backgroundColorTop: '#00000',
+    backgroundColorBottom: '#f8f8f8'
   };
 
   state = {};
@@ -16,43 +19,31 @@ export default class Index extends Component {
     return (
       <View className='main-wraper'>
         <NavBar
-          title='深色背景详情页有home'
+          title='深色背景'
           background='#000000'
           color='#fff'
           iconTheme='white'
-          back
-          home
-          onBack='handlerGobackClick'
-          onHome='handlerGohomeClick'
+          onBack={this.handlerGobackClick}
+          onHome={this.handlerGohomeClick}
+          fixedTabsList={this.state.fixedTabsList}
           renderLeft={
-            <View class='location' slot='left'>
+            <View class='location'>
               <View class='con'>上海</View>
               <View class='icon' />
             </View>
           }
-        >
-          <View
-            slot='center'
-            className='lxy-nav-bar-search'
-            style='height:{{capsulePosition.height}}px;'
-            bindtap='search'
-          >
-            <View class='icon-search' />
-            <Input
-              autoFocus='true'
-              bindconfirm='confirmSearch'
-              bindinput='search'
-              className='srch-ipt'
-              confirmType='search'
-              placeholder='搜索内容'
-              placeholderclassName='ipt-placeholder'
-              type='text'
-              value=''
-            />
-          </View>
-        </NavBar>
+        />
         <View className='main'>
-          <View className='p'>深色背景详情页</View>
+          <View
+            className='p active'
+            onClick={() => {
+              Taro.navigateTo({
+                url: '/pages/index/index'
+              });
+            }}
+          >
+            深色背景详情页
+          </View>
         </View>
       </View>
     );
