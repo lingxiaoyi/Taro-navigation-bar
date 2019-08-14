@@ -6,12 +6,18 @@
 
 Navigation 是小程序的顶部导航组件，当页面配置 navigationStyle 设置为 custom 的时候可以使用此组件替代原生导航栏
 
-## 引入组件
-
-在 page.json 中引入组件
+## 安装
 
 ```bash
-import NavBar from '@components/navbar_lxy';
+npm install taro-navigationbar --save
+```
+
+## 使用
+
+在代码中 import 需要的组件并按照文档说明使用
+
+```bash
+import NavBar from 'taro-navigationbar';
 ```
 
 ## 示例代码
@@ -59,16 +65,13 @@ import NavBar from '@components/navbar_lxy';
 - iconTheme 设置为 white 的时候,一定要记得自己去 json 文件设置"navigationBarTextStyle": "white"
 - 跳转搜索页面,在 Android 机子会出现文字被键盘弹起顶出 input 框,解决方案页面设置一个死的高度不要高于 windowHeight - navheight 例子中是设置 500px
 - input 框文字抖动问题我是借鉴别人写的,可以最大限度减小文字抖动的大小,提升用户体验
-- title searchBar slot="right" 如果全部有内容,是这样的先后显示顺序.
-- 默认配置满足不了功能的,请使用 slot 功能,见例子 6
+- title searchBar renderCenter 如果全部有内容,是这样的先后显示顺序.
+- 默认配置满足不了功能的,请使用 slot 功能,见例子 6 7
 - 由于本人精力有限,只测试了常规的 10 多款手机.如有哪种机型出现问题,请备注机型提问题.
 - 有什么 bug 和建议,还有功能上的问题请提 pr
+- 用法和测试 demo 请 clone 代码[仓库地址](https://github.com/lingxiaoyi/Taro-navigation-bar)
 
 ## 后续
-
-~
-开发 Taro 版本
-~
 
 ~
 创作不易,如果对你有帮助，请给个星星 star✨✨ 谢谢
