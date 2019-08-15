@@ -5,6 +5,7 @@ import NavBar from '@components/navbar_lxy';
 
 export default class Index extends Component {
   config = {
+    navigationBarTextStyle: 'black',
     navigationBarTitleText: '首页',
     navigationStyle: 'custom'
   };

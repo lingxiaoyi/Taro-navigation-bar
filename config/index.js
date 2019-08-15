@@ -1,7 +1,7 @@
 const path = require('path')
 
 const config = {
-  projectName: 'taro-ijije-navbar',
+  projectName: 'taro-navigationbar',
   date: '2019-7-1',
   designWidth: 750,
   deviceRatio: {

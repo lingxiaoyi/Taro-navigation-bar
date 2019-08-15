@@ -1,6 +1,6 @@
 {
 	"miniprogramRoot": "dist/",
-	"projectname": "taro-navbar",
+	"projectname": "taro-navigationbar",
 	"description": "taro自定义导航 ",
 	"appid": "wx76fe9d97c50feaa5",
 	"setting": {

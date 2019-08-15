@@ -43,19 +43,21 @@ export default class Index extends Component {
             </View>
           }
           renderCenter={
-            <View className='lxy-nav-bar-search' style='height:{{capsulePosition.height}}px;' bindtap='search'>
-              <View class='icon-search' />
-              <Input
-                autoFocus='true'
-                bindconfirm='confirmSearch'
-                bindinput='search'
-                className='srch-ipt'
-                confirmType='search'
-                placeholder='搜索内容'
-                placeholderclassName='ipt-placeholder'
-                type='text'
-                value=''
-              />
+            <View className='lxy-nav-bar-search'>
+              <View className='lxy-nav-bar-search__icon' />
+              <View className='lxy-nav-bar-search__input'>
+                <Input
+                  autoFocus
+                  bindconfirm='confirmSearch'
+                  bindinput='search'
+                  className='srch-ipt'
+                  confirmType='search'
+                  placeholder='搜索内容'
+                  placeholderclassName='ipt-placeholder'
+                  type='text'
+                  value=''
+                />
+              </View>
             </View>
           }
         />

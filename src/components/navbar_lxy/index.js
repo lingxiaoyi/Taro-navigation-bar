@@ -153,9 +153,10 @@ class AtComponent extends Component {
         </View>
       );
     } else {
+      /* eslint-disable */
       nav_bar__center = this.props.renderCenter;
+      /* eslint-enable */
     }
-    console.log('navBarHeight + navBarExtendHeight', navBarHeight, navBarExtendHeight);
     return (
       <View
         className={`lxy-nav-bar ${ios ? 'ios' : 'android'}`}
