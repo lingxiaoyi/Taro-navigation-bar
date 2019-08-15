@@ -1,78 +1,78 @@
 {
-	"miniprogramRoot": "dist/",
-	"projectname": "taro-ijije-navbar",
-	"description": "taro自定义导航 ",
-	"appid": "wx76fe9d97c50feaa5",
-	"setting": {
-		"urlCheck": true,
-		"es6": false,
-		"postcss": false,
-		"minified": false
-	},
-	"compileType": "miniprogram",
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"list": []
-		},
-		"miniprogram": {
-			"current": 5,
-			"list": [
-				{
-					"id": -1,
-					"name": "pages/demo/demo1",
-					"pathName": "pages/demo/demo1",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/demo/demo4",
-					"pathName": "pages/demo/demo4",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/demo/demo5",
-					"pathName": "pages/demo/demo5",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/demo/demo6",
-					"pathName": "pages/demo/demo6",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/demo/scorll",
-					"pathName": "pages/demo/scorll",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/demo/demo7",
-					"pathName": "pages/demo/demo7",
-					"scene": null
-				}
-			]
-		}
-	}
+  "miniprogramRoot": "dist/",
+  "projectname": "taro-navbar",
+  "description": "taro自定义导航 ",
+  "appid": "wx76fe9d97c50feaa5",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "postcss": false,
+    "minified": false
+  },
+  "compileType": "miniprogram",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "current": -1,
+      "list": []
+    },
+    "conversation": {
+      "current": -1,
+      "list": []
+    },
+    "plugin": {
+      "current": -1,
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "miniprogram": {
+      "current": 5,
+      "list": [
+        {
+          "id": -1,
+          "name": "pages/demo/demo1",
+          "pathName": "pages/demo/demo1",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/demo/demo4",
+          "pathName": "pages/demo/demo4",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/demo/demo5",
+          "pathName": "pages/demo/demo5",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/demo/demo6",
+          "pathName": "pages/demo/demo6",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/demo/scorll",
+          "pathName": "pages/demo/scorll",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/demo/demo7",
+          "pathName": "pages/demo/demo7",
+          "scene": null
+        }
+      ]
+    }
+  }
 }

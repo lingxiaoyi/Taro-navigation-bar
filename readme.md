@@ -6,13 +6,36 @@
 
 Navigation 是小程序的顶部导航组件，当页面配置 navigationStyle 设置为 custom 的时候可以使用此组件替代原生导航栏
 
-## 安装
+## 使用
+
+- 下载项目代码
 
 ```bash
-npm install taro-navigationbar --save
+git clone https://github.com/lingxiaoyi/Taro-navigation-bar.git
 ```
 
-## 使用
+- 进入目录安装依赖，国内用户推荐使用 cnpm 进行加速
+
+```bash
+npm i
+```
+
+或者
+
+```bash
+yarn  i
+```
+
+- 启动本地服务器
+
+```bash
+npm run dev:weapp # 微信小程序
+npm run dev:qq # qq小程序
+```
+
+- 用开发者工具打开代码目录,记得把appid改成自己的,或者点击测试号,如果不改就默认是作者的,以防不能访问.
+
+## 项目中使用
 
 在代码中 import 需要的组件并按照文档说明使用
 

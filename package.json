@@ -1,6 +1,6 @@
 {
-  "name": "taro-ijije-navbar",
-  "version": "1.0.0",
+  "name": "taro-navbar",
+  "version": "1.0.1",
   "private": true,
   "description": "taro自定义导航 ",
   "scripts": {
@@ -30,7 +30,6 @@
     "@tarojs/taro-weapp": "1.3.0-beta.5",
     "nerv-devtools": "^1.4.0-beta.3",
     "nervjs": "^1.4.0-beta.3",
-    "taro-navbar": "^1.0.2",
     "taro-navigationbar": "^1.0.1"
   },
   "devDependencies": {
