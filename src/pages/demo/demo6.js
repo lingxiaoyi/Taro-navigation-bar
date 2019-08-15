@@ -59,7 +59,7 @@ export default class Index extends Component {
             </View>
           }
         />
-        <View className='main'>
+        <View className='main' style='height:500px;'>
           <View
             className='p active'
             onClick={() => {

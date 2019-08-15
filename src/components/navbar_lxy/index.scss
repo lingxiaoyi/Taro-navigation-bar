@@ -14,10 +14,18 @@ page {
   --right: 97PX; /* 10+87 */
   /* prettier-ignore */
   --navBarExtendHeight: 4PX;
+  /* prettier-ignore */
+  --navBarHeight: 68PX;
 }
-.lxy-nav-bar .android {
+.lxy-nav-bar {
+  height: var(--navBarHeight);
+}
+.lxy-nav-bar.android {
   /* prettier-ignore */
   --height: 48PX; /* 8*2+32 */
+  /* prettier-ignore */
+  --navBarHeight: 72PX;
+  height: var(--navBarHeight);
 }
 .lxy-nav-bar .devtools {
   /* prettier-ignore */
@@ -28,12 +36,16 @@ page {
   top: 0;
   left: 0;
   z-index: 5001;
-  height: var(--height);
+  /* prettier-ignore */
+  height:  var(--navBarHeight);
   display: flex;
   align-items: center;
   padding-right: var(--right);
   width: 100%;
-  padding-bottom: var(--navBarExtendHeight);
+  /* prettier-ignore */
+  padding-top: 20PX;
+  /* prettier-ignore */
+  padding-bottom:4PX;
 }
 .lxy-nav-bar__inner .lxy-nav-bar__left {
   position: relative;
@@ -41,6 +53,8 @@ page {
   /* prettier-ignore */
   height: 32PX;
   /*  padding-left: 10PX; */
+  /* prettier-ignore */
+  margin-left:10PX;
   display: flex;
   align-items: center;
 }
@@ -113,10 +127,11 @@ page {
   margin-right: 10PX;
 }
 .lxy-nav-bar__placeholder {
-  height: var(--height);
+  height: var(--navBarHeight);
   background: #f8f8f8;
   position: relative;
   z-index: 50;
+  visibility: hidden;
 }
 
 .lxy-nav-bar-search {

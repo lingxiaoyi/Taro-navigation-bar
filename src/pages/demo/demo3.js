@@ -1,6 +1,6 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View } from '@tarojs/components';
-import NavBar from 'taro-navigationbar';
+import NavBar from '@components/navbar_lxy';
 import withComponent from './mixin';
 import './index.scss';
 

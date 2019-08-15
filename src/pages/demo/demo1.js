@@ -1,6 +1,6 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View, Input } from '@tarojs/components';
-import NavBar from 'taro-navigationbar';
+import NavBar from '@components/navbar_lxy';
 import withComponent from './mixin';
 import './index.scss';
 
@@ -40,7 +40,7 @@ export default class Index extends Component {
             </View>
           }
         />
-        <View className='main'>
+        <View className='main' style='height:500px;'>
           <View className='p'>搜索页面</View>
         </View>
       </View>

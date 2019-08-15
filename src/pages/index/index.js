@@ -1,7 +1,7 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View, Text, Button, Navigator } from '@tarojs/components';
 //import NavBar from '@components/navbar/index';
-import NavBar from 'taro-navigationbar';
+import NavBar from '@components/navbar_lxy';
 
 export default class Index extends Component {
   config = {
