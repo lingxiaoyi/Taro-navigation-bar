@@ -1,6 +1,6 @@
 import Taro, { Component } from '@tarojs/taro';
-import { View, Text, Button, Navigator } from '@tarojs/components';
-//import NavBar from '@components/navbar/index';
+import { View, Navigator } from '@tarojs/components';
+//import NavBar from 'taro-navigationbar';
 import NavBar from '@components/navbar_lxy';
 
 export default class Index extends Component {
@@ -26,7 +26,6 @@ export default class Index extends Component {
         <NavBar
           background='#fff'
           searchBar
-          back={false}
           onSearch={() => {
             Taro.navigateTo({
               url: '/pages/demo/demo1'

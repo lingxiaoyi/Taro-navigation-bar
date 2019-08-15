@@ -32,7 +32,6 @@ export default class Index extends Component {
           background='#fff'
           back
           home
-          searchBar={false}
           onBack={this.handlerGobackClick}
           onHome={this.handlerGohomeClick}
         />

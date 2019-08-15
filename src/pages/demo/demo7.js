@@ -25,7 +25,6 @@ export default class Index extends Component {
           iconTheme='white'
           onBack={this.handlerGobackClick}
           onHome={this.handlerGohomeClick}
-          fixedTabsList={this.state.fixedTabsList}
           renderLeft={
             <View class='location'>
               <View class='con'>上海</View>
