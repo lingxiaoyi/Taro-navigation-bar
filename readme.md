@@ -55,7 +55,6 @@ import NavBar from 'taro-navigationbar';
           background='#fff'
           back
           home
-          searchBar={false}
           onBack={this.handlerGobackClick}
           onHome={this.handlerGohomeClick}
         />

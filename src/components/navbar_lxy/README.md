@@ -8,6 +8,8 @@ Navigation 是小程序的顶部导航组件，当页面配置 navigationStyle �
 
 ## 安装
 
+- 进入目录安装依赖，国内用户推荐使用 cnpm 进行加速
+
 ```bash
 npm install taro-navigationbar --save
 ```
@@ -29,13 +31,12 @@ import NavBar from 'taro-navigationbar';
           background='#fff'
           back
           home
-          searchBar={false}
           onBack={this.handlerGobackClick}
           onHome={this.handlerGohomeClick}
         />
 ```
 
-更多使用方式请移步[仓库地址](https://github.com/lingxiaoyi/Taro-navigation-bar)查看demo和使用方式.
+更多使用方式请移步[仓库地址](https://github.com/lingxiaoyi/Taro-navigation-bar)内附使用方式和demo.
 
 ## 属性列表
 
@@ -64,23 +65,4 @@ import NavBar from 'taro-navigationbar';
 
 ## 注意
 
-- iconTheme 设置为 white 的时候,一定要记得自己去 json 文件设置"navigationBarTextStyle": "white"
-- 跳转搜索页面,在 Android 机子会出现文字被键盘弹起顶出 input 框,解决方案页面设置一个死的高度不要高于 windowHeight - navheight 例子中是设置 500px
-- input 框文字抖动问题我是借鉴别人写的,可以最大限度减小文字抖动的大小,提升用户体验
-- title searchBar renderCenter 如果全部有内容,是这样的先后显示顺序.
-- 默认配置满足不了功能的,请使用 slot 功能,见例子 6 7[仓库地址](https://github.com/lingxiaoyi/Taro-navigation-bar)
-- 由于本人精力有限,只测试了常规的 20 多款手机.如有哪种机型出现问题,请备注机型,小程序版本库提问题.本人会以最快方式解决问题.
-- 有什么 bug 和建议,还有功能上的问题请提 pr
-- 用法和测试 demo 请 clone 代码[仓库地址](https://github.com/lingxiaoyi/Taro-navigation-bar)
-
-## 后续
-
-- 添加其他需要的功能,规划中
-
-## 备注
-
-- 为什么我没添加滚动渐变的例子,因为用JS实现滚动渐变,在我的Android千元测试机上,效果不能直视,故取消.如有需要可以添加样式实现滚动渐变.
-- 为什么不支持navbar不固定定位,随页面滚动的功能.因为我观察了市场上99%的小程序,都是固定navbar,故不尝试开发此功能,如果需求很大.可以考虑最近版本开发.
-~
-创作不易,如果对你有帮助，请给个星星 star✨✨ 谢谢
-~
+更多注意情况请移步[仓库地址](https://github.com/lingxiaoyi/Taro-navigation-bar)内附一些其他的问题解决方案.
