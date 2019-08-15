@@ -122,7 +122,8 @@ class AtComponent extends Component {
       navBarHeight,
       capsulePosition,
       navBarExtendHeight,
-      ios
+      ios,
+      rightDistance
     };
   }
 
@@ -133,7 +134,8 @@ class AtComponent extends Component {
       navBarHeight,
       capsulePosition,
       navBarExtendHeight,
-      ios
+      ios,
+      rightDistance
     } = this.configStyle;
     const { title, background, back, home, searchBar, searchText, iconTheme } = this.props;
     let nav_bar__center = null;
@@ -191,8 +193,8 @@ class AtComponent extends Component {
             )}
             {!back && !home && this.props.renderLeft}
           </View>
-          <View className='lxy-nav-bar__center'>{nav_bar__center}</View>
-          <View className='lxy-nav-bar__right'>{this.props.renderRight}</View>
+          <View className='lxy-nav-bar__center' style={`padding-left: ${rightDistance}px`}>{nav_bar__center}</View>
+          <View className='lxy-nav-bar__right' style={`margin-right: ${rightDistance}px`}>{this.props.renderRight}</View>
         </View>
       </View>
     );

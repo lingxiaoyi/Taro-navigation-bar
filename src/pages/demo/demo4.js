@@ -15,6 +15,18 @@ export default class Index extends Component {
   };
 
   state = {};
+  handlerGobackClick() {
+    const pages = Taro.getCurrentPages();
+    if (pages.length >= 2) {
+      Taro.navigateBack({
+        delta: 1
+      });
+    } else {
+      Taro.navigateTo({
+        url: '/pages/index/index'
+      });
+    }
+  }
   render() {
     return (
       <View className='main-wraper'>
