@@ -41,12 +41,11 @@ npm run dev:qq # qq小程序
 ## 项目中使用
 
 - 进入目录安装依赖，国内用户推荐使用 cnpm 进行加速
+- npm使用方式移步[仓库地址](https://www.npmjs.com/package/taro-navigationbar)
 
 ```bash
 npm install taro-navigationbar --save
 ```
-
--npm使用方式移步[仓库地址](https://www.npmjs.com/package/taro-navigationbar)
 
 - 在代码中 import 并按照文档说明使用
 
