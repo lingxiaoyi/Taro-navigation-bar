@@ -54,6 +54,9 @@ export default class Index extends Component {
           <Navigator url='/pages/demo/demo7'>
             <View className='p active'>例子7: 点击跳转自定义左侧栏目带标题</View>
           </Navigator>
+          <Navigator url='/pages/demo/demo8'>
+            <View className='p active'>例子8: 自定义样式和修改默认图标</View>
+          </Navigator>
         </View>
       </View>
     );

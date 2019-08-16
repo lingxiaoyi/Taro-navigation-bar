@@ -21,6 +21,7 @@ class App extends Component {
       'pages/demo/demo5',
       'pages/demo/demo6',
       'pages/demo/demo7',
+      'pages/demo/demo8',
     ],
     window: {
       backgroundTextStyle: 'light',

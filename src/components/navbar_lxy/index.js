@@ -137,7 +137,7 @@ class AtComponent extends Component {
       ios,
       rightDistance
     } = this.configStyle;
-    const { title, background, back, home, searchBar, searchText, iconTheme } = this.props;
+    const { title, background, back, home, searchBar, searchText, iconTheme, extClass } = this.props;
     let nav_bar__center = null;
     if (title) {
       nav_bar__center = <text>{title}</text>;
@@ -159,7 +159,7 @@ class AtComponent extends Component {
     }
     return (
       <View
-        className={`lxy-nav-bar ${ios ? 'ios' : 'android'}`}
+        className={`lxy-nav-bar ${ios ? 'ios' : 'android'} ${extClass}`}
         style={`background: ${background};height:${navBarHeight + navBarExtendHeight}px;`}
       >
         <View

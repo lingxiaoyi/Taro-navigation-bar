@@ -40,7 +40,15 @@ npm run dev:qq # qq小程序
 
 ## 项目中使用
 
-在代码中 import 需要的组件并按照文档说明使用
+- 进入目录安装依赖，国内用户推荐使用 cnpm 进行加速
+
+```bash
+npm install taro-navigationbar --save
+```
+
+-npm使用方式移步[仓库地址](https://www.npmjs.com/package/taro-navigationbar)
+
+- 在代码中 import 并按照文档说明使用
 
 ```bash
 import NavBar from 'taro-navigationbar';
@@ -111,3 +119,32 @@ import NavBar from 'taro-navigationbar';
 ~
 创作不易,如果对你有帮助，请给个星星 star✨✨ 谢谢
 ~
+
+## 测试信息
+
+| 手机型号               | 胶囊位置信息         | statusBarHeight | 测试情况 |
+| ---------------------- | -------------------- | :-------------: | -------- |
+| iPhoneX                | 80 32 281 369 48 88  |       44        | 通过     |
+| iPhone8 plus           | 56 32 320 408 24 88  |       24        | 通过     |
+| iphone7                | 56 32 281 368  24 87 |       20        | 通过     |
+| iPhone6 plus           | 56 32 320 408 24 88  |       20        | 通过     |
+| iPhone6                | 56 32 281 368 24 87  |       20        | 通过     |
+| HUAWEI SLA-AL00        | 64 32 254 350 32 96  |       24        | 通过     |
+| HUAWEI VTR-AL00        | 64 32 254 350 32 96  |       24        | 通过     |
+| HUAWEI EVA-AL00        | 64 32 254 350 32 96  |       24        | 通过     |
+| HUAWEI EML-AL00        | 68 32 254 350 36 96  |       29        | 通过     |
+| HUAWEI VOG-AL00        | 65 32 254 350 33 96  |       25        | 通过     |
+| HUAWEI SMARTISAN OS105 | 64 32  326 422 32 96 |       24        | 通过     |
+| XIAOMI MI6             | 59 28 265 352 31 87  |     未记录      | 通过     |
+| XIAOMI MI4LTE          | 60 32 254 350 28 96  |       20        | 通过     |
+| XIAOMI MIX3            | 74 32 287 383 42 96  |       20        | 通过     |
+| REDMI NOTE3            | 64 32 254 350 32 96  |       20        | 通过     |
+| REDMI NOTE4            | 64 32 254 350 32 96  |       24        | 通过     |
+| REDMI NOTE3            | 55 28 255 351 27 96  |       20        | 通过     |
+| MEIZU M571C            | 65 32 254 350 33 96  |       25        | 通过     |
+| MEIZU M6 NOTE          | 62 32 254 350 30 96  |       22        | 通过     |
+| MEIZU MX4 PRO          | 62 32 278 374 30 96  |       22        | 通过     |
+| OPPO A33               | 65 32 254 350 33 96  |       26        | 通过     |
+| VIVO Y55               | 64 32 254 350 32 96  |       24        | 通过     |
+| HONOR BLN-AL20         | 64 32 254 350 32 96  |       24        | 通过     |
+| HONOR NEM-AL10         | 59 28 265 352 31 87  |       24        | 通过     |
