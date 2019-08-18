@@ -102,7 +102,6 @@ import NavBar from 'taro-navigationbar';
 - title searchBar renderCenter 如果全部有内容,是这样的先后显示顺序.
 - 默认配置满足不了功能的,请使用 slot 功能,见例子 1 6 7[仓库地址](https://github.com/lingxiaoyi/Taro-navigation-bar)
 - 由于本人精力有限,只测试了常规的 20 多款手机.如有哪种机型出现问题,请备注机型和小程序版本库.本人会以最快方式解决问题.
-- 有什么 bug 和建议,还有功能上的问题请提 pr.微信 zhijunxh.
 - 用法和测试 demo 请 clone 代码[仓库地址](https://github.com/lingxiaoyi/Taro-navigation-bar)
 
 ## 后续
@@ -112,6 +111,7 @@ import NavBar from 'taro-navigationbar';
 
 ## 备注
 
+- iPhone手机打电话和开热点导致导航栏样式错乱，问题已经解决啦，这里特别感谢moments网友提出的问题
 - 为什么我没添加滚动渐变的例子,因为用JS实现滚动渐变,在我的Android千元测试机上,效果不能直视,故取消.如有需要可以添加样式自己实现滚动渐变.
 - 为什么不支持navbar取消固定定位的功能.因为我观察了市场上98%以上的小程序,都是固定navbar,故先不尝试开发此功能,如果需求很大.可以考虑最近版本开发.
 
