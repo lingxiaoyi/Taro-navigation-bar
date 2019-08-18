@@ -4,7 +4,7 @@ import { View } from '@tarojs/components';
 import './index.scss';
 
 function getSystemInfo() {
-  if (Taro.globalSystemInfo) {
+  if (Taro.globalSystemInfo && !Taro.globalSystemInfo.ios) {
     return Taro.globalSystemInfo;
   } else {
     let systemInfo = Taro.getSystemInfoSync() || {
@@ -14,25 +14,32 @@ function getSystemInfo() {
     let ios = !!(systemInfo.system.toLowerCase().search('ios') + 1);
     let rect = Taro.getMenuButtonBoundingClientRect ? Taro.getMenuButtonBoundingClientRect() : null;
     Taro.getMenuButtonBoundingClientRect();
-    let navBarHeight = (function() {
-      let gap = ''; //胶囊按钮上下间距 使导航内容居中
-      if (systemInfo.platform === 'android') {
-        gap = 8;
-      } else if (systemInfo.platform === 'devtools') {
-        if (ios) {
-          gap = 5.5; //开发工具中ios手机
-        } else {
-          gap = 7.5; //开发工具中android和其他手机
-        }
+
+    let navBarHeight = '';
+    if (!systemInfo.statusBarHeight) {
+      systemInfo.statusBarHeight = systemInfo.screenHeight - systemInfo.windowHeight - 20;
+      navBarHeight = (function() {
+        let gap = rect.top - systemInfo.statusBarHeight;
+        return 2 * gap + rect.height;
+      })();
+
+      systemInfo.statusBarHeight = 0;
+      systemInfo.navBarExtendHeight = 0; //下方扩展4像素高度 防止下方边距太小
+    } else {
+      navBarHeight = (function() {
+        let gap = rect.top - systemInfo.statusBarHeight;
+        return systemInfo.statusBarHeight + 2 * gap + rect.height;
+      })();
+      if (ios) {
+        systemInfo.navBarExtendHeight = 4; //下方扩展4像素高度 防止下方边距太小
       } else {
-        gap = 4;
+        systemInfo.navBarExtendHeight = 0;
       }
-      return systemInfo.statusBarHeight + 2 * gap + rect.height;
-    })();
+    }
+
     systemInfo.navBarHeight = navBarHeight; //导航栏高度不包括statusBarHeight
     systemInfo.capsulePosition = rect; //右上角胶囊按钮信息bottom: 58 height: 32 left: 317 right: 404 top: 26 width: 87 目前发现在大多机型都是固定值 为防止不一样所以会使用动态值来计算nav元素大小
     systemInfo.ios = ios; //是否ios
-    systemInfo.navBarExtendHeight = 4; //下方扩展4像素高度 防止下方边距太小
     Taro.globalSystemInfo = systemInfo; //将信息保存到全局变量中,后边再用就不用重新异步获取了
     console.log('systemInfo', systemInfo);
     return systemInfo;
@@ -42,12 +49,22 @@ let globalSystemInfo = getSystemInfo();
 class AtComponent extends Component {
   constructor(props) {
     super(props);
-    this.configStyle = this.setStyle();
+    this.state = {
+      configStyle: this.setStyle(globalSystemInfo)
+    };
   }
   static options = {
     multipleSlots: true,
     addGlobalClass: true
   };
+  componentDidShow() {
+    if (globalSystemInfo.ios) {
+      globalSystemInfo = getSystemInfo();
+      this.setState({
+        configStyle: this.setStyle(globalSystemInfo)
+      });
+    }
+  }
   handleBackClick() {
     if (_isFunction(this.props.onBack)) {
       this.props.onBack();
@@ -85,8 +102,8 @@ class AtComponent extends Component {
 
   state = {};
 
-  setStyle() {
-    const { statusBarHeight, navBarHeight, capsulePosition, navBarExtendHeight, ios, windowWidth } = globalSystemInfo;
+  setStyle(systemInfo) {
+    const { statusBarHeight, navBarHeight, capsulePosition, navBarExtendHeight, ios, windowWidth } = systemInfo;
     const { back, home, title, color, background } = this.props;
     let rightDistance = windowWidth - capsulePosition.right; //胶囊按钮右侧到屏幕右侧的边距
     let leftWidth = windowWidth - capsulePosition.left; //胶囊按钮左侧到屏幕右侧的边距
@@ -136,7 +153,7 @@ class AtComponent extends Component {
       navBarExtendHeight,
       ios,
       rightDistance
-    } = this.configStyle;
+    } = this.state.configStyle;
     const { title, background, back, home, searchBar, searchText, iconTheme, extClass } = this.props;
     let nav_bar__center = null;
     if (title) {
@@ -194,8 +211,12 @@ class AtComponent extends Component {
             )}
             {!back && !home && this.props.renderLeft}
           </View>
-          <View className='lxy-nav-bar__center' style={`padding-left: ${rightDistance}px`}>{nav_bar__center}</View>
-          <View className='lxy-nav-bar__right' style={`margin-right: ${rightDistance}px`}>{this.props.renderRight}</View>
+          <View className='lxy-nav-bar__center' style={`padding-left: ${rightDistance}px`}>
+            {nav_bar__center}
+          </View>
+          <View className='lxy-nav-bar__right' style={`margin-right: ${rightDistance}px`}>
+            {this.props.renderRight}
+          </View>
         </View>
       </View>
     );
