@@ -7,6 +7,10 @@ function getSystemInfo() {
   if (Taro.globalSystemInfo && !Taro.globalSystemInfo.ios) {
     return Taro.globalSystemInfo;
   } else {
+    // h5环境下忽略navbar
+    if (!_isFunction(Taro.getSystemInfoSync)) {
+      return null;
+    }
     let systemInfo = Taro.getSystemInfoSync() || {
       model: '',
       system: ''
@@ -18,7 +22,7 @@ function getSystemInfo() {
     let navBarHeight = '';
     if (!systemInfo.statusBarHeight) {
       systemInfo.statusBarHeight = systemInfo.screenHeight - systemInfo.windowHeight - 20;
-      navBarHeight = (function() {
+      navBarHeight = (function () {
         let gap = rect.top - systemInfo.statusBarHeight;
         return 2 * gap + rect.height;
       })();
@@ -26,7 +30,7 @@ function getSystemInfo() {
       systemInfo.statusBarHeight = 0;
       systemInfo.navBarExtendHeight = 0; //下方扩展4像素高度 防止下方边距太小
     } else {
-      navBarHeight = (function() {
+      navBarHeight = (function () {
         let gap = rect.top - systemInfo.statusBarHeight;
         return systemInfo.statusBarHeight + 2 * gap + rect.height;
       })();
