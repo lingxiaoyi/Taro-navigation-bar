@@ -57,6 +57,9 @@ export default class Index extends Component {
           <Navigator url='/pages/demo/demo8'>
             <View className='p active'>例子8: 自定义样式和修改默认图标</View>
           </Navigator>
+          <Navigator url='/pages/demo/demo9'>
+            <View className='p active'>例子9: 导航头部透明,不占据位置显示</View>
+          </Navigator>
         </View>
       </View>
     );
