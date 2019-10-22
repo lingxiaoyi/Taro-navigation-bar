@@ -26,12 +26,28 @@
   font-size: 30rpx;
   line-height: 60rpx;
   text-align: center;
+  position: relative;
+  box-sizing: border-box;
+  padding-bottom: env(safe-area-inset-bottom);
   .img {
     width: 100%;
     height: 500px;
     line-height: 500px;
     color: #fff;
     background: linear-gradient(280deg, #fff 0%, red 50%, blue 80%);
+  }
+  .btn {
+    position: absolute;
+    bottom: 0;
+    width: 700rpx;
+    height: 100rpx;
+    background: rgb(5, 231, 35);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 25rpx;
+    bottom: env(safe-area-inset-bottom);
   }
 }
 .nav {

@@ -42,6 +42,7 @@ export default class Index extends Component {
         </View>
         <View className='main22'>
           <View className='img'>此处为图片背景</View>
+          <View className='btn'>按钮</View>
         </View>
       </View>
     );
