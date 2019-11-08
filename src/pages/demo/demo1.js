@@ -18,8 +18,7 @@ export default class Index extends Component {
       <View className='main-wraper'>
         <NavBar
           title=''
-          background='red'
-          backgroundColorTop='#000'
+          background='#fff'
           back
           home
           onBack={this.handlerGobackClick}

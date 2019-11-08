@@ -16,8 +16,8 @@ export default class Index extends Component {
   componentWillMount() {
     this.fngradient = throttle(e => {
       let opciaty = e.scrollTop / 130;
-      if (opciaty >= 0.5) {
-        opciaty = 0.5;
+      if (opciaty >= 1) {
+        opciaty = 1;
       } else if (opciaty <= 0) {
         opciaty = 0;
       }
