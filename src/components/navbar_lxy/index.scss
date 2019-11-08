@@ -19,6 +19,7 @@ page {
 }
 .lxy-nav-bar {
   height: var(--navBarHeight);
+  z-index: 999;
 }
 .lxy-nav-bar.android {
   /* prettier-ignore */
@@ -46,6 +47,12 @@ page {
   padding-top: 20PX;
   /* prettier-ignore */
   padding-bottom:4PX;
+  .placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
 }
 .lxy-nav-bar__inner .lxy-nav-bar__left {
   position: relative;

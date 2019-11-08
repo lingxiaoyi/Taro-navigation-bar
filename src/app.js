@@ -23,6 +23,7 @@ class App extends Component {
       'pages/demo/demo7',
       'pages/demo/demo8',
       'pages/demo/demo9',
+      'pages/demo/demo10',
     ],
     window: {
       backgroundTextStyle: 'light',

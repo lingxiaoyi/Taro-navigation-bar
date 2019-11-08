@@ -1,5 +1,6 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View, Input } from '@tarojs/components';
+import { throttle } from 'lodash';
 import NavBar from '@components/navbar_lxy';
 import withComponent from './mixin';
 import './index.scss';
@@ -11,15 +12,31 @@ export default class Index extends Component {
     navigationStyle: 'custom'
   };
 
-  state = {};
-
+  state = { background: 'rgba(255,255,255,1)' };
+  componentWillMount() {
+    this.fngradient = throttle(e => {
+      let opciaty = e.scrollTop / 130;
+      if (opciaty >= 0.5) {
+        opciaty = 0.5;
+      } else if (opciaty <= 0) {
+        opciaty = 0;
+      }
+      console.log('opciaty', opciaty);
+      this.setState({ background: `rgba(255,0,0,${opciaty})` });
+    }, 22);
+  }
+  onPageScroll(e) {
+    /* let opciaty = e.scrollTop / 1500;
+    this.setState({ background: `rgba(255,0,0,${opciaty})` }); */
+    this.fngradient(e); //节流一下
+  }
   render() {
     return (
       <View className='main-wraper'>
         <NavBar
           title=''
-          background='red'
-          backgroundColorTop='#000'
+          background={this.state.background}
+          backgroundColorTop='rgba(0,0,0,0)'
           back
           home
           onBack={this.handlerGobackClick}
@@ -43,7 +60,13 @@ export default class Index extends Component {
             </View>
           }
         />
-        <View className='main' style='height:500px;'>
+        <View
+          className='main'
+          style='height:5001px;'
+          onClick={() => {
+            this.setState({ background: `rgba(255,0,0)` });
+          }}
+        >
           <View className='p'>搜索页面</View>
         </View>
       </View>

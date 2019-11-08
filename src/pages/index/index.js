@@ -60,6 +60,9 @@ export default class Index extends Component {
           <Navigator url='/pages/demo/demo9'>
             <View className='p active'>例子9: 导航头部透明,不占据位置显示</View>
           </Navigator>
+          <Navigator url='/pages/demo/demo10'>
+            <View className='p active'>例子10: 导航头部透明,不占据位置显示</View>
+          </Navigator>
         </View>
       </View>
     );

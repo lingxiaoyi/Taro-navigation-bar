@@ -16,13 +16,49 @@ function getSystemInfo() {
       system: ''
     };
     let ios = !!(systemInfo.system.toLowerCase().search('ios') + 1);
-    let rect = Taro.getMenuButtonBoundingClientRect ? Taro.getMenuButtonBoundingClientRect() : null;
-    Taro.getMenuButtonBoundingClientRect();
+    let rect;
+    try {
+      rect = Taro.getMenuButtonBoundingClientRect1 ? Taro.getMenuButtonBoundingClientRect() : null;
+      if (rect === null) {
+        throw 'getMenuButtonBoundingClientRect error';
+      }
+    } catch (error) {
+      let gap = ''; //胶囊按钮上下间距 使导航内容居中
+      let width = 96; //胶囊的宽度
+      if (systemInfo.platform === 'android') {
+        gap = 8;
+        width = 96;
+      } else if (systemInfo.platform === 'devtools') {
+        if (ios) {
+          gap = 5.5; //开发工具中ios手机
+        } else {
+          gap = 7.5; //开发工具中android和其他手机
+        }
+      } else {
+        gap = 4;
+        width = 88;
+      }
+      if (!systemInfo.statusBarHeight) {
+        //开启wifi的情况下修复statusBarHeight值获取不到
+        systemInfo.statusBarHeight = systemInfo.screenHeight - systemInfo.windowHeight - 20;
+      }
+      rect = {
+        //获取不到胶囊信息就自定义重置一个
+        bottom: systemInfo.statusBarHeight + gap + 32,
+        height: 32,
+        left: systemInfo.windowWidth - width - 10,
+        right: systemInfo.windowWidth - 10,
+        top: systemInfo.statusBarHeight + gap,
+        width: width
+      };
+      console.log('rect', rect);
+    }
 
     let navBarHeight = '';
     if (!systemInfo.statusBarHeight) {
+      //开启wifi和打电话下
       systemInfo.statusBarHeight = systemInfo.screenHeight - systemInfo.windowHeight - 20;
-      navBarHeight = (function () {
+      navBarHeight = (function() {
         let gap = rect.top - systemInfo.statusBarHeight;
         return 2 * gap + rect.height;
       })();
@@ -30,7 +66,7 @@ function getSystemInfo() {
       systemInfo.statusBarHeight = 0;
       systemInfo.navBarExtendHeight = 0; //下方扩展4像素高度 防止下方边距太小
     } else {
-      navBarHeight = (function () {
+      navBarHeight = (function() {
         let gap = rect.top - systemInfo.statusBarHeight;
         return systemInfo.statusBarHeight + 2 * gap + rect.height;
       })();
@@ -93,7 +129,7 @@ class AtComponent extends Component {
   }
   static defaultProps = {
     extClass: '',
-    background: '#ffffff', //导航栏背景
+    background: 'rgba(255,255,255,1)', //导航栏背景
     color: '#000000',
     title: '',
     searchText: '点我搜索',
@@ -108,13 +144,13 @@ class AtComponent extends Component {
 
   setStyle(systemInfo) {
     const { statusBarHeight, navBarHeight, capsulePosition, navBarExtendHeight, ios, windowWidth } = systemInfo;
-    const { back, home, title, color, background } = this.props;
+    const { back, home, title, color } = this.props;
     let rightDistance = windowWidth - capsulePosition.right; //胶囊按钮右侧到屏幕右侧的边距
     let leftWidth = windowWidth - capsulePosition.left; //胶囊按钮左侧到屏幕右侧的边距
 
     let navigationbarinnerStyle = [
       `color:${color}`,
-      `background:${background}`,
+      //`background:${background}`,
       `height:${navBarHeight + navBarExtendHeight}px`,
       `padding-top:${statusBarHeight}px`,
       `padding-right:${leftWidth}px`,
@@ -158,7 +194,17 @@ class AtComponent extends Component {
       ios,
       rightDistance
     } = this.state.configStyle;
-    const { title, background, back, home, searchBar, searchText, iconTheme, extClass } = this.props;
+    const {
+      title,
+      background,
+      backgroundColorTop,
+      back,
+      home,
+      searchBar,
+      searchText,
+      iconTheme,
+      extClass
+    } = this.props;
     let nav_bar__center = null;
     if (title) {
       nav_bar__center = <text>{title}</text>;
@@ -181,13 +227,17 @@ class AtComponent extends Component {
     return (
       <View
         className={`lxy-nav-bar ${ios ? 'ios' : 'android'} ${extClass}`}
-        style={`background: ${background};height:${navBarHeight + navBarExtendHeight}px;`}
+        style={`background: ${backgroundColorTop ? backgroundColorTop : background};height:${navBarHeight +
+          navBarExtendHeight}px;`}
       >
         <View
           className={`lxy-nav-bar__placeholder ${ios ? 'ios' : 'android'}`}
           style={`padding-top: ${navBarHeight + navBarExtendHeight}px;`}
         />
-        <View className={`lxy-nav-bar__inner ${ios ? 'ios' : 'android'}`} style={navigationbarinnerStyle}>
+        <View
+          className={`lxy-nav-bar__inner ${ios ? 'ios' : 'android'}`}
+          style={`background:${background};${navigationbarinnerStyle};`}
+        >
           <View className='lxy-nav-bar__left' style={navBarLeft}>
             {back && !home && (
               <View
