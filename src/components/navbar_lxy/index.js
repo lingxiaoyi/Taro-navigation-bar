@@ -18,7 +18,7 @@ function getSystemInfo() {
     let ios = !!(systemInfo.system.toLowerCase().search('ios') + 1);
     let rect;
     try {
-      rect = Taro.getMenuButtonBoundingClientRect1 ? Taro.getMenuButtonBoundingClientRect() : null;
+      rect = Taro.getMenuButtonBoundingClientRect ? Taro.getMenuButtonBoundingClientRect() : null;
       if (rect === null) {
         throw 'getMenuButtonBoundingClientRect error';
       }
