@@ -122,6 +122,9 @@ page {
   justify-content: center;
   /* prettier-ignore */
   padding-left: 10PX;
+  text {
+    margin-top: -3px;
+  }
 }
 .lxy-nav-bar__inner .lxy-nav-bar__loading {
   font-size: 0;
