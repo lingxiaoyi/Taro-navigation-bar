@@ -25,6 +25,14 @@ export default class Index extends Component {
       this.setState({ background: `rgba(255,0,0,${opciaty})` });
     }, 22);
   }
+  componentDidMount() {
+    //页面里获取导航栏组件的高度
+    console.log(
+      'this.ref',
+      this.ref,
+      this.ref.state.configStyle.navBarHeight , this.ref.state.configStyle.navBarExtendHeight
+    );
+  }
   onPageScroll(e) {
     /* let opciaty = e.scrollTop / 1500;
     this.setState({ background: `rgba(255,0,0,${opciaty})` }); */
@@ -59,6 +67,9 @@ export default class Index extends Component {
               </View>
             </View>
           }
+          ref={ref => {
+            this.ref = ref;
+          }}
         />
         <View
           className='main'
