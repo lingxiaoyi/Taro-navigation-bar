@@ -16,21 +16,34 @@ page {
   --navBarExtendHeight: 4PX;
   /* prettier-ignore */
   --navBarHeight: 68PX;
+  box-sizing: border-box;
 }
-.lxy-nav-bar {
-  height: var(--navBarHeight);
-  z-index: 999;
+.lxy-nav-bar .ios {
+  /* prettier-ignore */
+  --height: 44PX; /* 4*2+32 */
+  /* prettier-ignore */
+  --right: 97PX; /* 10+87 */
+  /* prettier-ignore */
+  --navBarExtendHeight: 4PX;
+  box-sizing: border-box;
 }
-.lxy-nav-bar.android {
+.lxy-nav-bar .android {
   /* prettier-ignore */
   --height: 48PX; /* 8*2+32 */
   /* prettier-ignore */
-  --navBarHeight: 72PX;
-  height: var(--navBarHeight);
+  --right: 96PX; /* 10+87 */
+  /* prettier-ignore */
+  --navBarExtendHeight: 4PX;
+  box-sizing: border-box;
 }
 .lxy-nav-bar .devtools {
   /* prettier-ignore */
   --height: 42PX; /* 5*2+32 */
+  /* prettier-ignore */
+  --right: 88PX; /* 10+87 */
+  /* prettier-ignore */
+  --navBarExtendHeight: 4PX;
+  box-sizing: border-box;
 }
 .lxy-nav-bar__inner {
   position: fixed;
