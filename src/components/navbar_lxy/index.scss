@@ -1,11 +1,13 @@
-view,
-text,
-scroll-view,
-input,
-button,
-image,
-cover-view {
-  box-sizing: border-box;
+.lxy-nav-bar {
+  view,
+  text,
+  scroll-view,
+  input,
+  button,
+  image,
+  cover-view {
+    box-sizing: border-box;
+  }
 }
 page {
   /* prettier-ignore */
