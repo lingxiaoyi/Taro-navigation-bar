@@ -157,7 +157,7 @@ class AtComponent extends Component {
       `color:${color}`,
       //`background:${background}`,
       `height:${navBarHeight + navBarExtendHeight}px`,
-      `padding-top:${statusBarHeight}px`,
+      `padding-top:${statusBarHeight + navBarExtendHeight}px`,
       `padding-right:${leftWidth}px`,
       `padding-bottom:${navBarExtendHeight}px`
     ].join(';');
