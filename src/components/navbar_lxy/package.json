@@ -1,6 +1,6 @@
 {
-  "name": "taro-navigationbar",
-  "version": "2.1.1",
+  "name": "taro-navigationbar-v3",
+  "version": "3.0.1",
   "description": "taro组件封装的自定义导航栏  可自定义返回事件 返回home 搜索框 自定义左中右",
   "main": "app.js",
   "scripts": {
