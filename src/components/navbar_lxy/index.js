@@ -1,6 +1,7 @@
 import _isFunction from 'lodash/isFunction';
-import Taro, { Component } from '@tarojs/taro';
-import { View } from '@tarojs/components';
+import React, { Component } from "react";
+import Taro from "@tarojs/taro";
+import { View } from '@tarojs/components';	
 import './index.scss';
 
 function getSystemInfo() {
@@ -149,9 +150,9 @@ class AtComponent extends Component {
 
   setStyle(systemInfo) {
     const { statusBarHeight, navBarHeight, capsulePosition, navBarExtendHeight, ios, windowWidth } = systemInfo;
-    const { back, home, title, color } = this.props;
+    const { back, home, title, color, lw } = this.props;
     let rightDistance = windowWidth - capsulePosition.right; //胶囊按钮右侧到屏幕右侧的边距
-    let leftWidth = windowWidth - capsulePosition.left; //胶囊按钮左侧到屏幕右侧的边距
+    let leftWidth = lw || windowWidth - capsulePosition.left; //胶囊按钮左侧到屏幕右侧的边距
 
     let navigationbarinnerStyle = [
       `color:${color}`,
